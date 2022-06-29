@@ -58,5 +58,16 @@ namespace Shop
             }
             return paddedCode + code;
         }
+
+        public void Print()
+        {
+            Console.WriteLine($"{GetExtendedName()}");
+            Console.Write("Descrizione: ");
+            Console.WriteLine(Description);
+            Console.Write("Prezzo: ");
+            Console.WriteLine(Price);
+            Console.Write("IVA: ");
+            Console.WriteLine(Iva);
+        }
     }
 }
