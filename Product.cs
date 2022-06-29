@@ -11,16 +11,52 @@ namespace Shop
         public int Code { get; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public double Price { get; set; }
+        
+        private double price;
         private double iva;
 
+        public double Price
+        {
+            get { return price; }
+            set
+            {
+                price = value;
+                iva = price * 0.21;
+            }
+        }
+
+        public double Iva
+        {
+            get { return iva; }
+        }
+        
         public Product(string name, string description, double price)
         {
             Code = new Random().Next(1, 99999999);
             Name = name;
             Description = description;
             Price = price;
-            iva = 0.21 * price;
+        }
+
+        public string GetExtendedName()
+        {
+            return $"{Code} - {Name}";
+        }
+
+        public double GetTaxedPrice()
+        {
+            return price + iva;
+        }
+
+        public string GetPaddedCode() {
+            // return Code.ToString().PadLeft(8, '0');
+            string paddedCode = "";
+            string code = Code.ToString();
+            for (int i = 0; i < 8 - code.Length; i++)
+            {
+                paddedCode += "0";
+            }
+            return paddedCode + code;
         }
     }
 }
