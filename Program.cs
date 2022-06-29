@@ -11,6 +11,6 @@ Product product = new Product(name, description, price);
 
 product.Print();
 
-Console.WriteLine("Prezzo con iva: " + product.GetTaxedPrice());
+Console.WriteLine("Prezzo con iva: " + product.GetTaxedPriceString());
 Console.WriteLine("Nome esteso: " + product.GetExtendedName());
 Console.WriteLine("Codice di otto caratteri: " + product.GetPaddedCode());

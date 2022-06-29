@@ -48,6 +48,16 @@ namespace Shop
             return price + iva;
         }
 
+        public string GetPriceString()
+        {
+            return String.Format("{0:0.00}", Price) + "$"; // € is not displayed in console
+        }
+
+        public string GetTaxedPriceString()
+        {
+            return String.Format("{0:0.00}", GetTaxedPrice()) + "$";
+        }
+
         public string GetPaddedCode() {
             // return Code.ToString().PadLeft(8, '0');
             string paddedCode = "";
@@ -61,11 +71,12 @@ namespace Shop
 
         public void Print()
         {
+            Console.WriteLine();
             Console.WriteLine($"{GetExtendedName()}");
             Console.Write("Descrizione: ");
             Console.WriteLine(Description);
             Console.Write("Prezzo: ");
-            Console.WriteLine(Price);
+            Console.WriteLine(GetPriceString());
             Console.Write("IVA: ");
             Console.WriteLine(Iva);
         }
